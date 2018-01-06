@@ -132,15 +132,16 @@ public class WxPayController implements WxPayService {
 
 	@PostMapping("/notify")
 	public WxPayNotifyResponse notify(@RequestBody WxPayOrderNotifyResult request) {
-		
+		WxPayNotifyResponse response = new WxPayNotifyResponse();
+		response.setReturnCode("SUCCESS");
 		if(request.getResultCode()=="SUCCESS")
 		{
 			// TODO: check the security relative properties. 
 			// Include sign, total_fee etc.
 			// Save the pay result to internal database.
+			// Set the return code to 'FAIL' and also set the error message if any error occurred
+			
 		}
-		
-		WxPayNotifyResponse response = new WxPayNotifyResponse();
 		
 		return response;
 	}
